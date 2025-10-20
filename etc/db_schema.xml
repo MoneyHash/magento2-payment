@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+<!--
+  ~ /**
+  ~  * Copyright © 2025 MoneyHash. All rights reserved.
+  ~  *
+  ~  * Developed by: Ahmed Allam
+  ~  * Contact: mageserv.ltd@gmail.com (+20 102 0763062)
+  ~  *
+  ~  * Project: MoneyHash Payment Integration Extension for Magento 2
+  ~  *
+  ~  * NOTICE OF LICENSE
+  ~  * This source file is subject to the proprietary license that is bundled
+  ~  * with this package in the file LICENSE.txt. It is also available through
+  ~  * the world-wide-web at:
+  ~  * https://moneyhash.io/
+  ~  */
+  ~
+  -->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="quote" resource="default" engine="innodb" comment="Quotes">
+        <column xsi:type="varchar" name="intent_id" nullable="true" length="255" comment="Payment Intent ID"/>
+        <index referenceId="QUOTE_INTENT_ID" indexType="btree">
+            <column name="intent_id"/>
+        </index>
+    </table>
+    <table name="moneyhash_webhook_transaction" resource="default" engine="innodb"
+           comment="MoneyHash Webhook Transaction Log">
+
+        <column xsi:type="int" name="entity_id" padding="10" unsigned="true" nullable="false" identity="true"
+                comment="Entity ID"/>
+        <column xsi:type="varchar" name="intent_id" nullable="false" length="255"
+                comment="Unique Payment Reference"/>
+        <column xsi:type="int" name="quote_id" unsigned="true" nullable="true" comment="Quote ID"/>
+        <column xsi:type="blob" name="payload" nullable="false" comment="Gzip Compressed Webhook Payload"/>
+        <column xsi:type="tinyint" name="is_processed" nullable="false" default="0"
+                comment="Webhook Status"/>
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Created At"/>
+        <column xsi:type="timestamp" name="processed_at" on_update="false" nullable="true" comment="Processed At"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="FK_VENDOR_PAYMENT_WEBHOOK_QUOTE_ID_QUOTE_ENTITY_ID"
+                    table="moneyhash_webhook_transaction" column="quote_id"
+                    referenceTable="quote" referenceColumn="entity_id"
+                    onDelete="SET NULL"/>
+    </table>
+</schema>

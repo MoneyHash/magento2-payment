@@ -1,0 +1,55 @@
+"Payment failed: %1","Payment failed: %1"
+"Invalid response from gateway.","Invalid response from gateway."
+"No active quote found.","No active quote found."
+"Order could not be created.","Order could not be created."
+"Invalid response from Gateway","Invalid response from Gateway"
+"Mobile number is not valid. Please use format %1","Mobile number is not valid. Please use format %1"
+"Couldn't validate gateway response","Couldn't validate gateway response"
+"Intent successful","Intent successful"
+"Intent data is missing in the response","Intent data is missing in the response"
+"Please check your response","Please check your response"
+"Gateway returned non-200 response code: %1","Gateway returned non-200 response code: %1"
+"Payment data is missing or invalid in gateway response.","Payment data is missing or invalid in gateway response."
+"Payment validated successfully.","Payment validated successfully."
+"Payment is still unprocessed.","Payment is still unprocessed."
+Iframe,Iframe
+Native,Native
+Arabic,Arabic
+English,English
+French,French
+"Authorize Only","Authorize Only"
+"Authorize and Capture","Authorize and Capture"
+"Payment captured via MoneyHash. Transaction ID: %1. Authorization Code: %2. Amount: %3 %4.","Payment captured via MoneyHash. Transaction ID: %1. Authorization Code: %2. Amount: %3 %4."
+"Payment captured via MoneyHash. Transaction ID: %1","Payment captured via MoneyHash. Transaction ID: %1"
+"Signature verification failed","Signature verification failed"
+"Could not save webhook transaction: %1","Could not save webhook transaction: %1"
+"Webhook transaction with intent ID ""%1"" not found.","Webhook transaction with intent ID ""%1"" not found."
+Method,Method
+card_scheme,card_scheme
+card_number,card_number
+card_expiry_date,card_expiry_date
+funding_method,funding_method
+issuer,issuer
+name_on_card,name_on_card
+"Additional Information Required","Additional Information Required"
+"Please provide the following information to complete your payment:","Please provide the following information to complete your payment:"
+"Complete Payment","Complete Payment"
+"MoneyHash Payment","MoneyHash Payment"
+Title,Title
+"Enable MoneyHash Gateway","Enable MoneyHash Gateway"
+"This will enable/disable MoneyHash Gateway","This will enable/disable MoneyHash Gateway"
+"Enable Test Mode","Enable Test Mode"
+"Enable Logging","Enable Logging"
+"Implementation Type","Implementation Type"
+"API Version","API Version"
+"API Key","API Key"
+"Public Key","Public Key"
+"Flow ID","Flow ID"
+Language,Language
+"Enable Tokenization","Enable Tokenization"
+"Submit","Submit"
+"Card Holder Name","Card Holder Name"
+"Card Number","Card Number"
+"MM","Month"
+"YY","Year"
+"CVV","Security Code (CVV)"

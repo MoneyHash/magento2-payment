@@ -1,0 +1,27 @@
+<?xml version="1.0" ?>
+<!--
+  ~ /**
+  ~  * Copyright © 2025 MoneyHash. All rights reserved.
+  ~  *
+  ~  * Developed by: Ahmed Allam
+  ~  * Contact: mageserv.ltd@gmail.com (+20 102 0763062)
+  ~  *
+  ~  * Project: MoneyHash Payment Integration Extension for Magento 2
+  ~  *
+  ~  * NOTICE OF LICENSE
+  ~  * This source file is subject to the proprietary license that is bundled
+  ~  * with this package in the file LICENSE.txt. It is also available through
+  ~  * the world-wide-web at:
+  ~  * https://moneyhash.io/
+  ~  */
+  ~
+  -->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
+    <router id="standard">
+        <route id="moneyhash" frontName="moneyhash">
+            <module name="MoneyHash_Payment"/>
+        </route>
+    </router>
+</config>

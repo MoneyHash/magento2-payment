@@ -1,0 +1,81 @@
+<?php
+/*
+ *
+  * Copyright © 2025 MoneyHash. All rights reserved.
+  *
+  * Developed by: Ahmed Allam
+  * Contact: mageserv.ltd@gmail.com (+20 102 0763062)
+  *
+  * Project: MoneyHash Payment Integration Extension for Magento 2
+  *
+  * NOTICE OF LICENSE
+  * This source file is subject to the proprietary license that is bundled
+  * with this package in the file LICENSE.txt. It is also available through
+  * the world-wide-web at:
+  * https://moneyhash.io/
+
+
+ */
+
+// @codingStandardsIgnoreFile
+
+/**
+ * @var Card $block
+ */
+
+use MoneyHash\Payment\Block\Adminhtml\Order\View\Info\Card;
+
+?>
+<?php
+$info = $block->getPayment()?->getAdditionalInformation();
+if (!empty($info)):
+    ?>
+    <div class="admin__page-section-item-content">
+        <div class="order-payment-additional">
+            <div data-role="mh-full-payment-details-content">
+                <table class="data-table admin__table-secondary">
+                    <tbody>
+                    <tr>
+                        <th><?php echo __('Method') ?></th>
+                        <td><?php echo $block->safeValue($info['method_title'] ?? null) ?></td>
+                    </tr>
+                    <?php if ($info['method_title'] === "CARD"): ?>
+                        <tr>
+                            <th><?php echo __('card_scheme') ?></th>
+                            <td><?php echo $block->safeValue($info['card_scheme'] ?? null) ?></td>
+                        </tr>
+                        <tr>
+                            <th><?php echo __('card_number') ?></th>
+                            <td><?php echo $block->safeValue($info['card_number'] ?? null) ?></td>
+                        </tr>
+                        <tr>
+                            <th><?php echo __('card_expiry_date') ?></th>
+                            <td><?php echo $block->safeValue($info['card_expiry_date'] ?? null) ?></td>
+                        </tr>
+                        <tr>
+                            <td><?php echo __('funding_method') ?></td>
+                            <td><?php echo $block->safeValue($info['fundingMethod'] ?? null) ?></td>
+                        </tr>
+                        <tr>
+                            <td><?php echo __('issuer') ?></td>
+                            <td><?php echo $block->safeValue($info['issuer'] ?? null) ?></td>
+                        </tr>
+                        <tr>
+                            <td><?php echo __('name_on_card') ?></td>
+                            <td><?php echo $block->safeValue($info['nameOnCard'] ?? null) ?></td>
+                        </tr>
+                    <?php endif; ?>
+                    <?php if (!empty($info['provider_transaction_fields'])): ?>
+                        <?php foreach ($info['provider_transaction_fields'] as $field => $value): ?>
+                            <tr>
+                                <th><?= $field ?></th>
+                                <td><?php echo $block->safeValue($value ?? null) ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    <?php endif ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>

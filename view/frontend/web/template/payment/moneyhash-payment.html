@@ -1,0 +1,98 @@
+<!--
+  ~ /**
+  ~  * Copyright © 2025 MoneyHash. All rights reserved.
+  ~  *
+  ~  * Developed by: Ahmed Allam
+  ~  * Contact: mageserv.ltd@gmail.com (+20 102 0763062)
+  ~  *
+  ~  * Project: MoneyHash Payment Integration Extension for Magento 2
+  ~  *
+  ~  * NOTICE OF LICENSE
+  ~  * This source file is subject to the proprietary license that is bundled
+  ~  * with this package in the file LICENSE.txt. It is also available through
+  ~  * the world-wide-web at:
+  ~  * https://moneyhash.io/
+  ~  */
+  ~
+  -->
+
+<style>
+    .form-input {
+        border: 1px solid #d1d5dc;
+        border-radius: 4px;
+    }
+</style>
+<div id="methods" class="mh-content hidden">
+
+    <!-- ko if: paymentMethods().length > 0 -->
+    <div id="payment-methods" class="flex flex-col gap-2" data-bind="foreach: paymentMethods">
+        <div class="payment-method" data-bind="css: {'_active': $parent.isMethodChecked(id)}">
+            <div class="payment-method-title field choice"
+                 style="display: flex; justify-content: flex-start; align-items: center;gap: 6px">
+                <input type="radio"
+                       name="payment[method]"
+                       class="radio"
+                       data-bind="attr: {'id': $parent.getMethodCode(id)}, value: $parent.getMethodCode(id), checked: $parent.isMethodChecked(id), click: $parent.selectMethodHandler"/>
+                <img class="paymentslogos" data-bind="attr: {'src': icons[0]}, visible: icons.length > 0"
+                     style="max-height: 30px;">
+                <label class="label" data-bind="attr: {'for': $parent.getMethodCode(id)}"><span
+                    data-bind="text: title"></span></label>
+            </div>
+            <div class="payment-method-content">
+                <!-- Render additional fields component -->
+                <!-- ko if: $parent.hasAdditionalFields() -->
+                <div class="moneyhash-form-fields">
+                    <!-- ko template: {
+                        name: $parent.getAdditionalFields().template,
+                        data: $parent.getAdditionalFields()
+                    } --><!-- /ko -->
+                </div>
+                <!-- /ko -->
+            </div>
+        </div>
+    </div>
+    <!-- /ko -->
+</div>
+
+<div id="card-form" class="hidden">
+    <div class="grid grid-cols-2 gap-1">
+        <div class="col-span-full">
+            <div id="card-holder-name" class="form-input"></div>
+            <div id="card-holder-name-error" class="text-red-500 invisible">error</div>
+        </div>
+
+        <div class="col-span-full">
+            <div id="card-number" class="form-input"></div>
+            <div id="card-number-error" class="text-red-500 invisible">error</div>
+        </div>
+
+        <div>
+            <div id="card-expiry-month" class="form-input"></div>
+            <div id="card-expiry-month-error" class="text-red-500 invisible">error</div>
+        </div>
+
+        <div>
+            <div id="card-expiry-year" class="form-input"></div>
+            <div id="card-expiry-year-error" class="text-red-500 invisible">error</div>
+        </div>
+
+        <div class="col-span-full">
+            <div id="card-cvv" class="form-input"></div>
+            <div id="card-cvv-error" class="text-red-500 invisible">error</div>
+        </div>
+    </div>
+
+    <button
+        id="submit-button"
+        class="mt-2 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 cursor-pointer w-full !flex items-center justify-center action primary checkout"
+        data-bind="click: submitForm"
+    ><!-- ko i18n: 'Pay' --><!-- /ko -->
+    </button>
+</div>
+<div id="intent-status" class=" hidden flex flex-col items-center">
+    <h2 class="mt-4 flex justify-center">
+        <img id="intent-status-icon" src="" class="w-18 h-18"/>
+    </h2>
+    <span id="intent-status-message" class="text-center"></span>
+</div>
+

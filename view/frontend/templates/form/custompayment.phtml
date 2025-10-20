@@ -1,0 +1,31 @@
+<?php
+/*
+ *
+  * Copyright © 2025 MoneyHash. All rights reserved.
+  *
+  * Developed by: Ahmed Allam
+  * Contact: mageserv.ltd@gmail.com (+20 102 0763062)
+  *
+  * Project: MoneyHash Payment Integration Extension for Magento 2
+  *
+  * NOTICE OF LICENSE
+  * This source file is subject to the proprietary license that is bundled
+  * with this package in the file LICENSE.txt. It is also available through
+  * the world-wide-web at:
+  * https://moneyhash.io/
+
+
+ */
+
+/**
+ * @var $block \MoneyHash\SDK\Block\Form\MoneyHashPayment
+ */
+$instructions = $block->getInstructions();
+?>
+<?php if ($instructions): ?>
+  <?php $methodCode = $block->escapeHtml($block->getMethodCode()); ?>
+  <div class="items <?= /* @noEscape */ $methodCode ?> instructions agreement"
+    id="payment_form_<?= /* @noEscape */ $methodCode ?>" style="display: none;">
+    <?= /* @noEscape */ nl2br($block->escapeHtml($instructions)) ?>
+  </div>
+<?php endif; ?>

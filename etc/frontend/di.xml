@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!--
+  ~ /**
+  ~  * Copyright © 2025 MoneyHash. All rights reserved.
+  ~  *
+  ~  * Developed by: Ahmed Allam
+  ~  * Contact: mageserv.ltd@gmail.com (+20 102 0763062)
+  ~  *
+  ~  * Project: MoneyHash Payment Integration Extension for Magento 2
+  ~  *
+  ~  * NOTICE OF LICENSE
+  ~  * This source file is subject to the proprietary license that is bundled
+  ~  * with this package in the file LICENSE.txt. It is also available through
+  ~  * the world-wide-web at:
+  ~  * https://moneyhash.io/
+  ~  */
+  ~
+  -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Checkout\Model\CompositeConfigProvider">
+        <arguments>
+            <argument name="configProviders" xsi:type="array">
+                <item name="moneyhash_all_config_provider" xsi:type="object">MoneyHash\Payment\Model\Ui\ConfigProvider</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Vault\Model\Ui\TokensConfigProvider">
+        <arguments>
+            <argument name="tokenUiComponentProviders" xsi:type="array">
+                <item name="moneyhash_all" xsi:type="object">MoneyHash\Payment\Model\Ui\TokenUiComponentProvider</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

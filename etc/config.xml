@@ -1,0 +1,53 @@
+<?xml version="1.0" ?>
+<!--
+  ~ /**
+  ~  * Copyright © 2025 MoneyHash. All rights reserved.
+  ~  *
+  ~  * Developed by: Ahmed Allam
+  ~  * Contact: mageserv.ltd@gmail.com (+20 102 0763062)
+  ~  *
+  ~  * Project: MoneyHash Payment Integration Extension for Magento 2
+  ~  *
+  ~  * NOTICE OF LICENSE
+  ~  * This source file is subject to the proprietary license that is bundled
+  ~  * with this package in the file LICENSE.txt. It is also available through
+  ~  * the world-wide-web at:
+  ~  * https://moneyhash.io/
+  ~  */
+  ~
+  -->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <payment>
+            <moneyhash_all>
+                <active>0</active>
+                <title>MoneyHash Payment</title>
+                <currency_select>base_currency</currency_select>
+                <order_status>pending_payment</order_status>
+                <model>MoneyHashAllFacade</model>
+                <api_key backend_model="MoneyHash\Payment\Model\Config\Backend\ApiKey" />
+                <payment_action>authorize</payment_action>
+                <test_mode>1</test_mode>
+                <log_enabled>1</log_enabled>
+                <vault_active>1</vault_active>
+                <can_initialize>0</can_initialize>
+                <can_authorize>1</can_authorize>
+                <can_capture>1</can_capture>
+                <can_capture_partial>0</can_capture_partial>
+                <can_void>1</can_void>
+                <can_cancel>1</can_cancel>
+                <can_refund>1</can_refund>
+                <can_refund_partial_per_invoice>0</can_refund_partial_per_invoice>
+                <can_use_checkout>1</can_use_checkout>
+                <can_capture_vault>1</can_capture_vault>
+                <is_gateway>1</is_gateway>
+                <is_offline>0</is_offline>
+                <cctypes>AE,VI,MC</cctypes>
+                <useccv>1</useccv>
+                <language>ar-EG</language>
+            </moneyhash_all>
+        </payment>
+    </default>
+</config>

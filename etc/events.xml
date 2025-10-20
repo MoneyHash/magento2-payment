@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--
+  ~ /**
+  ~  * Copyright © 2025 MoneyHash. All rights reserved.
+  ~  *
+  ~  * Developed by: Ahmed Allam
+  ~  * Contact: mageserv.ltd@gmail.com (+20 102 0763062)
+  ~  *
+  ~  * Project: MoneyHash Payment Integration Extension for Magento 2
+  ~  *
+  ~  * NOTICE OF LICENSE
+  ~  * This source file is subject to the proprietary license that is bundled
+  ~  * with this package in the file LICENSE.txt. It is also available through
+  ~  * the world-wide-web at:
+  ~  * https://moneyhash.io/
+  ~  */
+  ~
+  -->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="payment_method_assign_data_moneyhash_all">
+        <observer name="moneyhash_all_payment_data" instance="MoneyHash\Payment\Observer\PaymentMethodDataAssignObserver"/>
+    </event>
+    <event name="sales_model_service_quote_submit_success">
+        <observer name="moneyhash_handle_unprocessed_webhook_transaction" instance="MoneyHash\Payment\Observer\ProcessWebhookAfterOrderObserver"/>
+    </event>
+</config>
