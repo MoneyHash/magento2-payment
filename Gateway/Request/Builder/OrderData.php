@@ -42,7 +42,7 @@ class OrderData implements BuilderInterface
             'amount_currency' => $order->getCurrencyCodeForStore(),
             'merchant_reference' => $order->getOrderIncrementId()
         ];
-        /*if ($order->getDiscountAmount()) {
+        if ($order->getDiscountAmount()) {
             $result['discount'] = [
                 "title" => [
                     "en" => "Discount",
@@ -50,7 +50,7 @@ class OrderData implements BuilderInterface
                 "type" => "amount",
                 "value" => abs($order->getDiscountAmount()),
             ];
-        }*/
+        }
         $fees = [];
         if ($order->getShippingAmount()) {
             $fees[] = [

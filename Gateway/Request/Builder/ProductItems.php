@@ -57,7 +57,7 @@ class ProductItems implements BuilderInterface
                     'type' => $item->getWeight() ? "Physical" : "Digital",
                     'tax' => sprintf('%.2F', $this->convert($item->getBaseTaxAmount()) ?: 1)
                 ];
-                /*$discount = $item->getDiscountAmount() ?: $item->getOriginalPrice() - $item->getPrice();
+                $discount = $item->getDiscountAmount() ?: $item->getOriginalPrice() - $item->getPrice();
                 if ($discount) {
                     $lineItem['discount'] = [
                         "title" => [
@@ -66,7 +66,7 @@ class ProductItems implements BuilderInterface
                         "type" => "amount",
                         "value" => abs($discount),
                     ];
-                }*/
+                }
                 $result[] = $lineItem;
             }
         }
