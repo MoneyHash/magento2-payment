@@ -30,7 +30,6 @@ use MoneyHash\Payment\Model\Ui\ConfigProvider;
 class TransferFactory implements TransferFactoryInterface
 {
     public const BASE_API_URL = 'https://web.moneyhash.io/api/v.4/';
-    public const STAGING_API_URL = 'https://staging-web.moneyhash.io/api/v1.4/';
     /**
      * @param TransferBuilder $transferBuilder
      * @param PaymentHelper $paymentHelper
@@ -40,11 +39,6 @@ class TransferFactory implements TransferFactoryInterface
         private readonly PaymentHelper $paymentHelper,
         private readonly string $method = "POST"
     ) {
-    }
-    private function getApiUrl()
-    {
-        $isTestMode = (bool) $this->paymentHelper->getMethodInstance(ConfigProvider::CODE_ALL)->getConfigData("test_mode");
-        return $isTestMode ? self::STAGING_API_URL : self::BASE_API_URL;
     }
     /**
      * Builds gateway transfer object
@@ -62,7 +56,7 @@ class TransferFactory implements TransferFactoryInterface
                 'content-type' => 'application/json',
                 'X-Api-Key' => $this->paymentHelper->getMethodInstance(ConfigProvider::CODE_ALL)->getConfigData("api_key")
             ])
-            ->setUri($this->getApiUrl());
+            ->setUri(self::BASE_API_URL);
         if (!empty($request['headers'])) {
             $builder->setHeaders($request['headers']);
         }
