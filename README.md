@@ -9,10 +9,7 @@ A secure and unified payment gateway integration for Magento 2, enabling merchan
 - Version: `1.0.0`
 - Magento Compatibility: `2.4.2` and above
 - PHP Compatibility: `8.1` – `8.4`
-- Author: Ahmed Allam (mageserv.ltd@gmail.com)
 - Website: https://moneyhash.io
-- Documentation: https://docs.moneyhash.io/docs/magento-2
-
 ---
 
 ## 🚀 Installation Instructions
