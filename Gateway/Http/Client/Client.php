@@ -5,7 +5,7 @@
   * Copyright © 2025 MoneyHash. All rights reserved.
   *
   * Developed by: Ahmed Allam
-  * Contact: mageserv.ltd@gmail.com (+20 102 0763062)
+
   *
   * Project: MoneyHash Payment Integration Extension for Magento 2
   *
