@@ -29,7 +29,7 @@ use MoneyHash\Payment\Model\Ui\ConfigProvider;
 
 class TransferFactory implements TransferFactoryInterface
 {
-    public const BASE_API_URL = 'https://web.moneyhash.io/api/v.4/';
+    public const BASE_API_URL = 'https://web.moneyhash.io/api/v1.4/';
     /**
      * @param TransferBuilder $transferBuilder
      * @param PaymentHelper $paymentHelper
